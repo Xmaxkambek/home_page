@@ -22,6 +22,7 @@ class _MyWidgetState extends State<AppBarWidget> {
             height: 40,
             child: TextField(
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search),
                 border: InputBorder.none,
                 filled: true,
                 hintText: 'Shoes',

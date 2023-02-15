@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                   const Filters(), //space allocation vertical
                   line(double.infinity, 2),
                   //hoomeFootwear
-                  HomeFootwear(),
+                 const  HomeFootwear(),
                 ],
               ),
             )
