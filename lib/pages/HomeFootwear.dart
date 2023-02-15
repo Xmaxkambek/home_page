@@ -21,7 +21,6 @@ class _HomeFootwearState extends State<HomeFootwear> {
     'Size 6, 7, 8, 9, 10',
     'Size 6, 7, 8, 9, 10',
   ];
-
   List<String> itemPrice = [
     '\$599    \$1,999  70% off',
     '\$399    \$999  60% off',
@@ -63,9 +62,7 @@ class _HomeFootwearState extends State<HomeFootwear> {
 
   @override
   Widget build(BuildContext context) {
-    for (int a = 0; a < item.length; a++) {
-      a = a;
-    }
+   
     return Expanded(
       flex: 5,
       child: Padding(
