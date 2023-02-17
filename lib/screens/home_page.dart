@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../pages/AppBar.dart';
-import '../pages/CostumTopBar.dart';
-import '../pages/Filters.dart';
-import '../pages/HomeFootwear.dart';
+import '../widget/appBar.dart';
+import '../widget/costumTopBar.dart';
+import '../widget/filters.dart';
+import '../widget/homeProducts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                   const Filters(), //space allocation vertical
                   line(double.infinity, 2),
                   //hoomeFootwear
-                 const  HomeFootwear(),
+                  const HomePage(),
                 ],
               ),
             )

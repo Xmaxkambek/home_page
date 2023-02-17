@@ -157,7 +157,6 @@ class _FiltersState extends State<Filters> {
               child: const Text('2107 MORE  '),
             ),
             line(1, double.infinity),
-
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: Row(
