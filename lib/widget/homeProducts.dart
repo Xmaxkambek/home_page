@@ -1,37 +1,30 @@
-// ignore_for_file: sized_box_for_whitespace
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 import '../models/products.dart';
+import 'grit_item.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class ProductOverView extends StatelessWidget {
+  const ProductOverView({super.key});
 
-  @override
-  State<HomePage> createState() => _HomeFootwearState();
-}
-
-class _HomeFootwearState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 5,
-      child: Padding(
-        padding: const EdgeInsets.all(40.0),
+    final productData = Provider.of<Products>(context).prod;
+    return Card(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width * 0.8,
         child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 300,
-            mainAxisExtent: 250,
-            // mainAxisSpacing: 170,
-            crossAxisSpacing: 15,
-            // childAspectRatio: 19 / 20,
+          itemCount: 8,
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 280,
+            childAspectRatio: 0.95,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5,
           ),
-          itemCount: 3,
-          itemBuilder: (context, index) => Container(
-            height: 200,
-            width: 200,
-            child: Center(child: Text('salom')),
+          itemBuilder: (context, index) => ChangeNotifierProvider(
+            create: (context) => productData[index],
+            child: GritItem(),
           ),
         ),
       ),

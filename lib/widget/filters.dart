@@ -1,28 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Filters extends StatefulWidget {
-  const Filters({super.key});
-
-  @override
-  State<Filters> createState() => _FiltersState();
-}
-
-class _FiltersState extends State<Filters> {
-  Widget line(double height, double width) {
-    return Container(
-      height: height,
-      width: width,
-      color: const Color.fromARGB(255, 231, 225, 225),
-    );
-  }
-
+class MainDrawer extends StatelessWidget {
+  const MainDrawer({super.key});
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return Card(
+      child: SizedBox(
+        width: 240,
+        height: MediaQuery.of(context).size.height,
+        child: ListView(
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const SizedBox(height: 10),
@@ -60,7 +46,7 @@ class _FiltersState extends State<Filters> {
             const SizedBox(
               height: 40,
             ),
-            line(2, double.infinity),
+            const Divider(),
             //CATEGORIES
             const Padding(
               padding: EdgeInsets.all(5.0),
@@ -80,13 +66,13 @@ class _FiltersState extends State<Filters> {
                 ],
               ),
             ),
-            line(1, double.infinity),
+            const Divider(),
             const SizedBox(height: 25),
             const Padding(
               padding: EdgeInsets.all(5.0),
               child: Text('GENDER'),
             ),
-            line(2, double.infinity),
+            const Divider(),
             const SizedBox(height: 25),
             Row(
               children: [
@@ -94,12 +80,14 @@ class _FiltersState extends State<Filters> {
                   value: false,
                   onChanged: (value) {},
                 ),
-                Container(
-                  child: Image.asset('img/Assured.png'),
+                SizedBox(
+                  width: 100,
+                  child: Image.network(
+                      'https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png'),
                 ),
               ],
             ),
-            line(1, double.infinity),
+            const Divider(),
             const SizedBox(height: 20),
             const Padding(
               padding: EdgeInsets.all(5.0),
@@ -156,7 +144,7 @@ class _FiltersState extends State<Filters> {
               onPressed: () {},
               child: const Text('2107 MORE  '),
             ),
-            line(1, double.infinity),
+            const Divider(),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: Row(

@@ -1,83 +1,113 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class AppBarWidget extends StatefulWidget {
-  const AppBarWidget({super.key});
+TextEditingController _controller = TextEditingController();
 
-  @override
-  State<AppBarWidget> createState() => _MyWidgetState();
-}
+class MainAppBar extends StatelessWidget {
+  const MainAppBar({super.key});
 
-class _MyWidgetState extends State<AppBarWidget> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
+    return LayoutBuilder(
+      builder: (ctx, constraint) => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 1,
-            child: Image.asset('img/leading.png'),
-          ),
-          const Expanded(
-            flex: 3,
-            child: SizedBox(
-              height: 40,
-              child: TextField(
-                decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.search),
-                  border: InputBorder.none,
-                  filled: true,
-                  hintText: 'Shoes',
-                  fillColor: Colors.white,
-                ),
+          Column(
+            children: [
+              Text('Flipkart',
+                  style:
+                      GoogleFonts.fugazOne(fontSize: 28, color: Colors.white)),
+              Row(
+                children: [
+                  Text(
+                    'Explore',
+                    style: GoogleFonts.fugazOne(
+                        fontSize: 15, color: Colors.white70),
+                  ),
+                  Text(
+                    'Plus✙',
+                    style: GoogleFonts.fugazOne(
+                        fontSize: 15, color: Colors.yellow),
+                  )
+                ],
               ),
+            ],
+          ),
+          SizedBox(
+            width: constraint.maxWidth * 0.01,
+          ),
+          SizedBox(
+            width: constraint.maxWidth * 0.45,
+            height: 35,
+            child: TextField(
+              // textAlign: TextAlign.center,
+              // style: TextStyle(fontSize: 12),
+              controller: _controller,
+              decoration: InputDecoration(
+                  suffix: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.search,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  hintText: 'Search for products, brands and more',
+                  fillColor: Colors.white,
+                  filled: true,
+                  border: InputBorder.none),
             ),
           ),
-          Expanded(
-            flex: 2,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Center(
-                  child: Container(
-                    height: 40,
-                    width: 70,
-                    color: Colors.white,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Become a Seller',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'More',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                Row(
-                  children: [
-                    const Icon(Icons.shopping_cart),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Cart',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+          SizedBox(
+            width: constraint.maxWidth * 0.01,
+          ),
+          FilledButton(
+            onPressed: () {},
+            style: FilledButton.styleFrom(
+              padding: const EdgeInsets.only(
+                  left: 30, right: 30, top: 18, bottom: 18),
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0),
+              ),
+            ),
+            child: const Text(
+              'Login',
+              style: TextStyle(color: Colors.blue),
+            ),
+          ),
+          SizedBox(
+            width: constraint.maxWidth * 0.01,
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Text(
+              'Become a Seller',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          SizedBox(
+            width: constraint.maxWidth * 0.01,
+          ),
+          TextButton.icon(
+            label: const Text(
+              'More',
+              style: TextStyle(color: Colors.white),
+            ),
+            onPressed: () {},
+            icon: const Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(
+            width: constraint.maxWidth * 0.01,
+          ),
+          TextButton.icon(
+            icon: const Icon(Icons.shopping_cart, color: Colors.white),
+            onPressed: () {},
+            label: const Text(
+              'Shop',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ],
@@ -85,3 +115,4 @@ class _MyWidgetState extends State<AppBarWidget> {
     );
   }
 }
+
